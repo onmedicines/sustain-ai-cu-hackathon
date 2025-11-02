@@ -12,9 +12,11 @@ app.use(e.urlencoded({ extended: true }));
 app.get("/", (req, res) => res.json({ hello: "world" }));
 app.post("/", async (req, res) => {
   try {
+    console.log("post request start");
     const { url } = req.body;
     const analysis = await analyzeWebsite(url);
 
+    console.log("post request end");
     return res.json({ analysis });
   } catch (err) {
     return res.status(400).json({ message: err.message });

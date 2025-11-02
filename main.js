@@ -2,6 +2,8 @@ import calculateMetrics from "./calculate-metrics.js";
 import { estimateEmissions } from "./estimate-emissions.js";
 
 export async function analyzeWebsite(url) {
+  console.log("analyzing webiste");
+
   if (!url) {
     throw new Error("URL is required.");
   }
@@ -11,6 +13,7 @@ export async function analyzeWebsite(url) {
 
   const emissions = await estimateEmissions(totalBytes);
 
+  console.log("analysis done");
   return {
     url,
     metrics,

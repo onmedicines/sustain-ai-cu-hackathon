@@ -1,6 +1,8 @@
 import puppeteer from "puppeteer";
 
 async function calculateMetrics(url) {
+  console.log("calculating metrics");
+
   const browser = await puppeteer.launch({
     headless: true,
     args: [
@@ -85,6 +87,7 @@ async function calculateMetrics(url) {
 
   await browser.close();
 
+  console.log("metrics done");
   return metrics;
 }
 

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "pnpm dlx nodemon index.js",
+    "dev": "nodemon index.js",
     "start": "node index.js",
     "preinstall": "export PUPPETEER_SKIP_DOWNLOAD=false",
     "build": "npx puppeteer browsers install chrome"

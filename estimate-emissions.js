@@ -6,11 +6,11 @@ export async function estimateEmissions(totalBytes) {
   const model = new co2({
     model: "swd",
     version: 4,
-    rating: true, // a - f
+    rating: true,
   });
 
   const co2Estimate = model.perByteTrace(totalBytes);
 
   console.log("estimation end");
-  return co2Estimate;
+  return { emissions: co2Estimate };
 }

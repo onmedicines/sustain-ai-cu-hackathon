@@ -18,7 +18,7 @@ export async function analyzeWebsite(url) {
     url,
     metrics,
     totalTransferBytes: totalBytes,
-    ...emissions,
+    emissions,
   };
 }
 

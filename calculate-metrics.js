@@ -5,13 +5,13 @@ async function calculateMetrics(url) {
 
   const browser = await puppeteer.launch({
     headless: true,
+    executablePath:
+      process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--disable-dev-shm-usage",
       "--disable-gpu",
-      "--no-zygote",
-      "--single-process",
     ],
   });
   const page = await browser.newPage();

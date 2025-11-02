@@ -1,7 +1,17 @@
 import puppeteer from "puppeteer";
 
 async function calculateMetrics(url) {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--no-zygote",
+      "--single-process",
+    ],
+  });
   const page = await browser.newPage();
 
   await page.setViewport({ width: 1366, height: 768 });
@@ -74,7 +84,7 @@ async function calculateMetrics(url) {
   });
 
   await browser.close();
-  
+
   return metrics;
 }
 
